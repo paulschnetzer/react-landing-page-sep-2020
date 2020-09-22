@@ -16,7 +16,19 @@ const centeredContainerStyles = css`
 
 const firstSection = css`
   ${centeredContainerStyles};
-  height: 728px;
+  height: 700px;
+  
+  a {
+    position: relative;
+    display: inline;
+    left: 87%;
+    top: 470px;
+
+    img {
+      width: 157px;
+      padding-bottom: 8px;
+    }
+  }
 `;
 
 const h1 = css`
@@ -26,8 +38,8 @@ const h1 = css`
 
 const img = css`
   width: 1280px;
-  vertical-align: middle;
-  z-index: -1;
+  margin-top: -130px;
+  display: block;
 `;
 
 const h2 = css`
@@ -38,22 +50,11 @@ const h2 = css`
   font-weight: 300;
 `;
 
-const buttonwrapper = css`
-  position: absolute;
-  top: 555px;
-  right: 44px;
-
-  img {
-    width: 157px;
-    padding-bottom: 6px;
-  }
-`;
-
 const secondSection = css`
   ${centeredContainerStyles};
-  height: 1370px;
+  height: 1440px;
   background-color: black;
-  padding-top: 528px;
+  padding-top: 595px;
   p {
     color: white;
     width: 66%;
@@ -75,11 +76,13 @@ const thirdSection = css`
     font-size: 20px;
     font-weight: 400;
     line-height: 26px;
+    opacity: 0.95;
   }
   h1 {
     font-size: 34px;
     margin-bottom: -8px;
     padding-bottom: 0px;
+    opacity: 0.95;
   }
   img {
     width: 1280px;
@@ -89,7 +92,7 @@ const thirdSection = css`
 const footer = css`
   ${centeredContainerStyles};
   background-color: black;
-  padding-top: 500px;
+  padding-top: 450px;
   display: flex;
   justify-content: space-between;
 
@@ -99,12 +102,45 @@ const footer = css`
     font-weight: 400;
     line-height: 26px;
     color: white;
+    margin-bottom: 27px;
   }
-  button {
-    display: block;
-    align-items: right;
+
+  p:nth-child(3) {
+    font-size: 14px;
+    display: inline;
+    opacity: 0.5;
+
+    a {
+      border-bottom: solid yellow 2px;
+      text-decoration: none;
+      color: white;
+    }
+  }
+  a {
+    img {
+      margin-top: 55px;
+      margin-right: 12px;
+      width: 157px;
+      margin-bottom: -35px;
+    }
   }
 `;
+const linkbox = css`
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 52px;
+  a {
+    color: white;
+    font-size: 32px;
+    font-weight: 400;
+    margin-bottom: 23px;
+    border-bottom: solid yellow 2px;
+    display: block;
+    text-decoration: none;
+    margin-right: auto;
+  }
+`;
+
 function App() {
   return (
     <div>
@@ -118,15 +154,14 @@ function App() {
           </h2>
         </div>
 
-        <div css={buttonwrapper}>
-          <a href="#a" alt="button">
-            <img src={apple} />
-          </a>
-          <br />
-          <a href="#a" alt="button">
-            <img src={apple} />
-          </a>
-        </div>
+        <a href="#a" alt="button">
+          <img src={apple} />
+        </a>
+        <br />
+        <a href="#a" alt="button">
+          <img src={apple} />
+        </a>
+
         <img src={onephone} css={img} />
       </header>
       <main>
@@ -169,9 +204,11 @@ function App() {
       <footer css={footer}>
         <div>
           <p>Available for</p>
-          <a href="#a">Android</a>
-          <a href="#a">iOS</a>
-          <a href="#a">PWA Progressive Web App</a>
+          <div css={linkbox}>
+            <a href="#a">Android</a>
+            <a href="#a">iOS</a>
+            <a href="#a">PWA Progressive Web App</a>
+          </div>
           <p>
             Proudly designed and developed by the folks over at{' '}
             <a href="#a">abdz.do</a>
