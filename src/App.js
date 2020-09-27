@@ -11,22 +11,31 @@ const centeredContainerStyles = css`
   margin: 0 auto;
   padding: 32px;
   max-width: 1440px;
-  padding: 32px;
 `;
 
 const firstSection = css`
   ${centeredContainerStyles};
   height: 700px;
-  
+
   a {
     position: relative;
     display: inline;
     left: 87%;
     top: 470px;
+    @media (max-width: 1280px) {
+      left: 70%;
+    }
+    @media (max-width: 770px) {
+      top: 25px;
+      left: 80%;
+    }
 
     img {
       width: 157px;
       padding-bottom: 8px;
+      @media (max-width: 770px) {
+        width: 100px;
+      }
     }
   }
 `;
@@ -34,12 +43,28 @@ const firstSection = css`
 const h1 = css`
   font-size: 48px;
   margin: 0px;
+  @media (max-width: 770px) {
+    font-size: 32px;
+  }
 `;
-
-const img = css`
-  width: 1280px;
-  margin-top: -130px;
-  display: block;
+const picturecontainer = css`
+  width: 100%;
+  overflow: hidden;
+  margin-top: -140px;
+  position: relative;
+  @media (max-width: 770px) {
+    width: 100%;
+    margin-top: 0px;
+  }
+  img {
+    width: 100%;
+    position: relative;
+    @media (max-width: 770px) {
+      width: 180%;
+      margin-left: -250px;
+      margin-top: 100px;
+    }
+  }
 `;
 
 const h2 = css`
@@ -48,6 +73,10 @@ const h2 = css`
   font-size: 23px;
   line-height: 200%;
   font-weight: 300;
+  @media (max-width: 770px) {
+    margin-top: 0px;
+    font-size: 16px;
+  }
 `;
 
 const secondSection = css`
@@ -65,6 +94,9 @@ const secondSection = css`
   img {
     width: 1280px;
     margin-top: 100px;
+    @media (max-width: 1440px) {
+      width: 100%;
+    }
   }
 `;
 const thirdSection = css`
@@ -87,6 +119,10 @@ const thirdSection = css`
   img {
     width: 1280px;
     margin-top: 50px;
+    @media (max-width: 1440px) {
+      width: 100%;
+      min-width: 0px;
+    }
   }
 `;
 const footer = css`
@@ -140,6 +176,7 @@ const linkbox = css`
     margin-right: auto;
   }
 `;
+//##########MEDIA QUERY###########
 
 function App() {
   return (
@@ -162,7 +199,9 @@ function App() {
           <img src={apple} />
         </a>
 
-        <img src={onephone} css={img} />
+        <div css={picturecontainer}>
+          <img src={onephone} />
+        </div>
       </header>
       <main>
         <section css={secondSection}>
